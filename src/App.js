@@ -64,23 +64,30 @@ function App() {
     <div className="overflow-x-hidden shadow-xl  bg-[#282c34]">
       <div className="flex flex-col items-center w-screen h-[1000px] overflow-hidden left-0 bg-[#282c34]  gap-5 ">
         <div className='w-full flex justify-center items-center mt-8'>
-          <div className='w-96 h-20 '>
+          <div className='md:w-96 w-60 h-20 '>
             <Search name='name_acronimo' placeholder="Ingresa un acrónimo o inicial" enterButton={`Buscar`} size="large"  loading={false} onSearch={onFinish}/>
           </div>
         </div>
         <ShowModal  onFinish={onFinish}></ShowModal>
         <div className='flex flex-col w-[80%] justify-center items-center gap-5'>
-        <div className='text-gray-100 w-[50%] gap-5 text-lg h-[300px] rounded-3xl flex flex-col justify-center items-center border-2 border-slate-200'>
-          {currentGames.name=== "NO FOUND"?
-          (<h1>Cargando...</h1>)
-          :currentGames.map((e, index)=>{
-            return(
-                <ul key={index}>
-                  <li  >
-                    {e.name}
-                  </li>
-                </ul>
-            )
+        <div className='text-gray-100 w-64 md:w-[50%] gap-5 md:text-lg text-sm h-[300px] rounded-3xl flex flex-col justify-center items-center border-2 border-slate-200'>
+          {currentGames.map((e, index)=>{
+            if (e.name==="NOT FOUND"){
+              return(
+
+                <h1 className='p-4 text-white'>NOT FOUND</h1>
+              )
+            }else{
+              return(
+                
+                  <ul key={index}>
+                    <li  >
+                      {e.name}
+                    </li>
+                  </ul>
+              )
+              
+            }
           })}
 
         
