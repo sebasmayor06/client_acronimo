@@ -4,8 +4,7 @@ export const POST_ACRONIMO = "POST_ACRONIMO"
 export const GET_ACRONIMO = "GET_ACRONIMO"
 export const GET_HISTORIAL = "GET_HISTORIAL"
 
-const BASE_URL = "apiacronimo-production.up.railway.app"
-
+const BASE_URL = "https://apiacronimo-production.up.railway.app"
 
 export function busqueda(payload) {
   return async function (dispatch) {
