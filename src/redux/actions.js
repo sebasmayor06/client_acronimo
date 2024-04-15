@@ -45,8 +45,7 @@ export const searchAcronimo = (sf) => {
 
 export const historial_busqueda = () => {
   return async function (dispatch){
-    const URL_BASE= `${BASE_URL}/api/historial`
-    const peticion = await axios.get(URL_BASE)
+    const peticion = await axios.get(`${BASE_URL}/api/historial`)
 
     return dispatch ({type:GET_HISTORIAL, payload: peticion.data})
   }
