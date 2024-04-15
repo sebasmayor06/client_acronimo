@@ -44,7 +44,7 @@ export function busqueda(payload) {
 
   export const historial_busqueda = () => {
     return async function (dispatch){
-      const URL_BASE= "https://apiacronimo-production.up.railway.app//api/historial"
+      const URL_BASE= "https://apiacronimo-production.up.railway.app/api/historial"
       const peticion = await axios.get(URL_BASE)
 
       return dispatch ({type:GET_HISTORIAL, payload: peticion.data})
