@@ -7,7 +7,7 @@ export const GET_HISTORIAL = "GET_HISTORIAL"
 
 export function busqueda(payload) {
     return async function (dispatch) {
-      const info = await axios.post(`apiacronimo-production.up.railway.app/api/busquedas`, payload,{
+      const info = await axios.post(`https://apiacronimo-production.up.railway.app/api/busquedas`, payload,{
         headers: {
           'Content-Type': 'application/json',
         },
@@ -27,7 +27,7 @@ export function busqueda(payload) {
 
   export const searchAcronimo = (sf) => {
     return async function (dispatch) {
-      const acronimo = await axios.get(`apiacronimo-production.up.railway.app/api?sf=${sf}`)
+      const acronimo = await axios.get(`https://apiacronimo-production.up.railway.app/api?sf=${sf}`)
       console.log("probando ", acronimo);
       dispatch({type:GET_ACRONIMO , payload:acronimo.data})
       if (acronimo.length > 1 ){
@@ -44,7 +44,7 @@ export function busqueda(payload) {
 
   export const historial_busqueda = () => {
     return async function (dispatch){
-      const URL_BASE= "apiacronimo-production.up.railway.app/api/historial"
+      const URL_BASE= "https://apiacronimo-production.up.railway.app//api/historial"
       const peticion = await axios.get(URL_BASE)
 
       return dispatch ({type:GET_HISTORIAL, payload: peticion.data})
