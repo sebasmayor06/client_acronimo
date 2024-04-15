@@ -34,26 +34,27 @@ const ShowModal2 = ({ onFinish}) => {
   }
 
   return (
-    <>
-      <Button type="primary" onClick={showModal}>
-        Ver Historial
-      </Button>
-      {(
-        <Modal
-          title="Historial"
-          open={isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <div className='text-black w-full h-full rounded-3xl grid grid-cols-3 p-4 border-2 border-slate-200 gap-2'>
-            {historial?.map((f, index) => (
-              <button onClick={handleClick} name={f.name_acronimo} value={f.name_acronimo} className=' border-2 font-bold border-slate-950 w-20 rounded-3xl bg-slate-400' key={index}>{f.name_acronimo}</button>
-            ))}
-          </div>
-        </Modal>
-      )}
-    </>
-  );
+      <>
+        <Button type="primary" onClick={showModal}>
+          Ver Historial
+        </Button>
+        {historial?.length > 0 && (
+          <Modal
+            title="Historial"
+            open={isModalOpen}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <div className='text-black w-full h-full rounded-xl grid grid-cols-3 p-4 border-2 border-slate-200 gap-2'>
+              {historial?.map((f, index) => (
+                <button onClick={handleClick} name={f.name_acronimo} value={f.name_acronimo} className=' border-2 font-bold border-slate-500 w-20 rounded-md bg-slate-200' key={index}>{f.name_acronimo}</button>
+              ))}
+            </div>
+          </Modal>
+        )}
+      </>
+    );
+    
 };
 
 export default ShowModal2;
